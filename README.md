@@ -1,8 +1,8 @@
 # OptoSense Defect Classification Dataset (synthetic)
 
-**Scenario.** You are the data science team at a plant that assembles optoelectronic components similar to the OPTEK / TT Electronics range: IR emitters, phototransistors, slotted optical switches and reflective object sensors. Every unit passes through die attach, wire bonding, moulding, curing and reflow, then an end-of-line electrical test, X-ray and visual inspection, and a short burn-in. Management wants a model that flags defective units and identifies the failure mechanism so the right process team can respond.
+**Scenario.** You are the data science team at a plant that assembles optoelectronic components similar to the OPTEK range: IR emitters, phototransistors, slotted optical switches and reflective object sensors. Every unit passes through die attach, wire bonding, moulding, curing and reflow, then an end-of-line electrical test, X-ray and visual inspection, and a short burn-in. Management wants a model that flags defective units and identifies the failure mechanism so the right process team can respond.
 
-All data is synthetic. Part numbers, suppliers, machines and operators are fictional and do not represent real TT Electronics products or performance.
+All data is synthetic. Part numbers, suppliers, machines and operators are fictional and do not represent real products or performance.
 
 ## Files
 
