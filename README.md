@@ -15,11 +15,6 @@ All data is synthetic. Part numbers, suppliers, machines and operators are ficti
 
 The split is by time, not random, so the test set reflects deployment on future production.
 
-## Targets
-
-`defect_type` (multi-class, 7 classes, heavily imbalanced, roughly 85% NONE): NONE, WIRE_BOND_LIFT, DIE_ATTACH_VOID, OPTICAL_MISALIGNMENT, LEAKAGE_CURRENT, LED_DEGRADATION, PACKAGE_CRACK.
-`is_defective` (binary) is derived from `defect_type`.
-
 ## Data dictionary
 
 | Column | Type | Meaning |
@@ -61,17 +56,3 @@ The split is by time, not random, so the test set reflects deployment on future 
 | burnin_drift_pct | num | Parameter drift after burn-in |
 | rework_ticket_id | id | Rework system ticket |
 | defect_type, is_defective | target | See above |
-
-## Suggested project tasks
-
-1. **Data audit and cleaning.** Profile every column. This is real-world-style data: expect missing values (some structural, some not), inconsistent category labels, impossible sensor values, unit errors, duplicates and some label noise. Document what you find and justify each fix.
-2. **EDA.** How do defect rates vary by line, shift, machine, supplier and time? Which test parameters separate each defect type?
-3. **Binary model** for `is_defective`. Think about which metric matters when a missed defect ships to a customer.
-4. **Multi-class model** for `defect_type`. Handle imbalance and report macro-F1 and per-class recall.
-5. **Leakage check.** For every feature, ask whether it would be available at the moment you need the prediction.
-6. **Interpretability and root cause.** Use feature importance, SHAP or partial dependence to link failure modes back to process parameters, and make recommendations to the plant.
-7. **Stretch goals.** Time-aware validation, drift detection between train and test, lot-level anomaly detection, a cost-sensitive decision threshold, or predicting `burnin_drift_pct` (regression) from pre-burn-in data so burn-in can be shortened.
-
-## Evaluation (suggested)
-
-Primary: macro-F1 on `defect_type` for the test set. Secondary: recall on `is_defective` at a precision of at least 0.80.
